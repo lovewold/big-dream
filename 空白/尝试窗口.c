@@ -2,13 +2,16 @@
 #include <stdio.h>
 int main()
 {
-	int a;
-	float b;
-	double c;
-	char ch;
-	printf("ÇëÊäÈëa,b,c,chµÄÖµ£º");
-	scanf("%d %f %lf %c", &a, &b, &c, &ch);
-	printf("a = %d,b = %f,c= %lf,ch= %c", a, b, c, ch);
-	putchar("\n");
+	int a, b;
+	int c = scanf("%d %d", &a, &b);
+	printf("%d", c);
+	while (scanf("%d %d", &a, &b))
+	{
+		if (a > b)
+		{
+			printf("%d %d", b, a);
+		}
+	     
+	}
 	return 0;
 }
