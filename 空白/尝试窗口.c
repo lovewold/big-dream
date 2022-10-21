@@ -1,17 +1,14 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+
 #include <stdio.h>
 int main()
 {
-	int a, b;
-	int c = scanf("%d %d", &a, &b);
-	printf("%d", c);
-	while (scanf("%d %d", &a, &b))
-	{
-		if (a > b)
+
+		int i = 0;
+		for (i = 0; i < 10; i++)
 		{
-			printf("%d %d", b, a);
+			if (i = 5)
+				printf("%d ", i);
 		}
-	     
-	}
 	return 0;
 }
