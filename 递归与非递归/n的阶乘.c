@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#include<stdio.h>
-//阶乘实现
+//#include<stdio.h>
+////阶乘实现
 //int jiecheng1(int x)
 //{
 //	if (x <= 1)

@@ -1,32 +1,32 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-////非递归
-//#include<stdio.h>
-//int my_strlen(char* x)
-//{
-//	int count = 0;
-//	while(*x != '\0')
-//	{
-//		count++;
-//		x++;
-//
-//	}
-//	return count;
-//}
-////递归实现
-//int my_strlen1(char* x)
-//{
-//	if (*x != '\0')
-//	{
-//		return 1 + my_strlen1(x++);
-//	}
-//	else
-//		return 0;
-//}
-//int main()
-//{
-//	char arr[]="adbbh";
-//	int ret = my_strlen(arr);
-//	int ter = my_strlen(arr);
-//	printf("%d %d", ret,ter);
-//	return 0;
-//}
+//非递归
+#include<stdio.h>
+int my_strlen(char* x)
+{
+	int count = 0;
+	while(*x != '\0')
+	{
+		count++;
+		x++;
+
+	}
+	return count;
+}
+//递归实现
+int my_strlen1(char* x)
+{
+	if (*x != '\0')
+	{
+		return 1 + my_strlen1(x+1);
+	}
+	else
+		return 0;
+}
+int main()
+{
+	char arr[]="adbbh";
+	int ret = my_strlen(arr);
+	int ter = my_strlen1(arr);
+	printf("%d %d", ret,ter);
+	return 0;
+}
