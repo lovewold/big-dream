@@ -39,6 +39,7 @@ void Printf_board(char board[ROW][COL], int row, int col)
 	}
 	printf("\n");
 }
+
 void playergame(char board[ROW][COL])
 {
 	printf("Íæ¼ÒÏÂÆå\n");
