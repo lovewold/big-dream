@@ -53,7 +53,7 @@ void lei(char board[ROW1][COL1])
 	}
 }
 //ÅÅÀ×
-void playboard(char mine[ROW1][COL1], char show[ROW1][COL1],int i,int j)
+void playboard(char mine[ROW1][COL1], char show[ROW1][COL1],int i,int j,int* k)
 {
 		
 			if (1 <= i && i <= ROW && 1 <= j && j <= COL)
@@ -68,7 +68,52 @@ void playboard(char mine[ROW1][COL1], char show[ROW1][COL1],int i,int j)
 					{
 						char ret = mine[i - 1][j] + mine[i + 1][j] + mine[i][j - 1] + mine[i][j + 1] + mine[i - 1][j - 1] + mine[i - 1][j + 1] + mine[i + 1][j - 1] + mine[i + 1][j + 1];
 						show[i][j] = ret - 7 * '0';
-						
+	
+						int x = i;
+						int y = j;
+
+						if (show[x][y] == '0')
+						{
+							if (x - 1 >= 1 && y - 1 >= 1 && show[x - 1][y - 1] == '*')
+							{
+								playboard(mine, show, x - 1, y - 1,k=1);
+							}
+							if (x - 1 >= 1 && show[x - 1][y] == '*')
+							{
+								playboard(mine, show, x - 1, y,k=1);
+
+							}
+							if (x - 1 >= 1 && y + 1 <= COL && show[x - 1][y + 1] == '*')
+							{
+								playboard(mine, show, x - 1, y + 1,k=1);
+
+							}
+							if (1 <= y - 1 && show[x][y - 1] == '*')
+							{
+								playboard(mine, show, x, y - 1,k=1);
+
+							}
+							if (y + 1 <= COL && show[x][y + 1] == '*')
+							{
+								playboard(mine, show, x, y + 1,k=1);
+
+							}
+							if (x + 1 <= ROW && y - 1 >= 1 && show[x + 1][y - 1] == '*')
+							{
+								playboard(mine, show, x, y - 1,k=1);
+
+							}
+							if (x + 1 <= ROW && show[x + 1][y] == '*')
+							{
+								playboard(mine, show, x + 1, y,k=1);
+
+							}
+							if (x + 1 <= ROW && y + 1 <= COL && show[x + 1][y + 1] == '*')
+							{
+								playboard(mine, show, x + 1, y + 1,k=1);
+
+							}
+						}
 					}
 					else
 					{
@@ -105,9 +150,4 @@ void findboard(char show[ROW1][COL1])
 	{
 		printf("ÄãÓ®ÁË\n");
 	}
-}
-//×Ô¶¯ÅÅÀ×
-void pailei(char mine[ROW1][COL1], char show[ROW1][COL1], int x, int y)
-{
-	if(show[x][y]=='*')
 }

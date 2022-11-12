@@ -24,3 +24,5 @@ void playboard(char mine[ROW1][COL1], char show[ROW1][COL1],int i,int j);
 void findboard(char show[ROW1][COL1]);
 
 void pailei(char mine[ROW1][COL1], char show[ROW1][COL1], int x, int y);
+//±ê¼ÇÀ×
+void biaoji(char show[ROW1][COL1], int i,int j);
