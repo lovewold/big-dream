@@ -38,13 +38,13 @@ void game()
 			{
 				int i = 0;
 				int j = 0;
-				printf("«Î ‰»Î£∫\n");
+				printf("«Î ‰»Î◊¯±Í x x£∫\n");
 				scanf("%d %d", &i, &j);
 			
 				int k = 0;
 				
 				playboard(mine, show,i,j,&k);
-
+				system("cls");
 				printboard(show, ROW, COL);
 				if (key == 1)
 				{
