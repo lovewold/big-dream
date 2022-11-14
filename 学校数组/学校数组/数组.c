@@ -123,25 +123,28 @@
 #include<stdio.h>
 int main()
 {
-	int arr[3][4];
-	int arr1[4][3];
+	int arr[10][10];
+	int arr1[10][10];
+	int n = 0;
+	int m = 0;
+	scanf("%d %d", &n, &m);
 	int i = 0;
 	int j = 0;
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < n; i++)
 	{
-		for (j = 0; j < 4; j++)
+		for (j = 0; j < m; j++)
 		{
 			scanf("%d", &arr[i][j]);
 		}
 	}
 	
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < m; i++)
 	{
 		
-		for (j = 0; j < 3; j++)
+		for (j = 0; j < n; j++)
 		{
 			arr1[i][j] = arr[j][i];
-			printf("arr1[%d][%d]=%d\n ", i, j, arr1[i][j]);
+			printf("%d\n ", i, j, arr1[i][j]);
 		}
 		
 	}
