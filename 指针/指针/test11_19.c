@@ -36,6 +36,8 @@ void printt(char* arr)
 		i++;
 	}
 }
+
+
 int main()
 {
 	char arr[101] = { 0 };
