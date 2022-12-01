@@ -19,6 +19,8 @@ int main()
 	int sz = strlen(arr);
 	lixv(arr, arr + sz - 1);
 	char* p = arr;
+
+
 	while (*p)//Ö¸Ïò'\0'Ìø³ö£»
 	{
 		char* d = p;
