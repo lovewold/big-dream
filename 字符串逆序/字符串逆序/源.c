@@ -35,6 +35,12 @@ int main()
 		}
 		else
 		{
+
+
+
+
+
+
 			p = d;
 		}
 	}
