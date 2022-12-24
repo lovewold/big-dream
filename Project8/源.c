@@ -13,6 +13,8 @@ char* find_char(char const* str, char const* chars)
                     return str;
             }
         }
+
+
     }
     //Ã»ÕÒµ½£¬·µ»ØNULL
     return NULL;
