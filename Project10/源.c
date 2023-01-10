@@ -17,7 +17,6 @@ int main()
 			{
 				a = arr[j + 1];
 
-
 				arr[j + 1] = arr[j];
 				arr[j] = a;
 			}
@@ -25,8 +24,6 @@ int main()
 	}
 	for (i = 0; i < 10; i++)
 	{
-
-
 		printf("%d ", arr[i]);
 	}
 	return 0;
