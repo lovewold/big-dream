@@ -19,6 +19,7 @@ int main()
 
 				arr[j + 1] = arr[j];
 				arr[j] = a;
+
 			}
 		}
 	}
