@@ -40,37 +40,37 @@
 //
 //……
 
-#include<stdio.h>
-int main()
-{
-	int arr[20][20] = { 0 };
-	int n = 0;
-	scanf("%d", &n);
-	int i = 0;
-	int j = 0;
-
-	for (i = 0; i <= n; i++)
-	{
-		int count = n-i;
-		for (j = 0; j < i; j++)
-		{
-			arr[i][0] = 1;
-			arr[i][i - 1] = 1;//改变整体外壳使之为1
-			
-			//中间值变化
-			if (i > 1&&j>0&&j<=i-1)
-			{
-				arr[i+1][j] = arr[i][j - 1] + arr[i][j];
-			}
-			while (count-- >0)
-			{
-				printf(" ");
-
-			}
-			printf("%2d ", arr[i][j]);
-
-		}
-		printf("\n");
-	}
-	return 0;
-}
+//#include<stdio.h>
+//int main()
+//{
+//	int arr[20][20] = { 0 };
+//	int n = 0;
+//	scanf("%d", &n);
+//	int i = 0;
+//	int j = 0;
+//
+//	for (i = 0; i <= n; i++)
+//	{
+//		int count = n-i;
+//		for (j = 0; j < i; j++)
+//		{
+//			arr[i][0] = 1;
+//			arr[i][i - 1] = 1;//改变整体外壳使之为1
+//			
+//			//中间值变化
+//			if (i > 1&&j>0&&j<=i-1)
+//			{
+//				arr[i+1][j] = arr[i][j - 1] + arr[i][j];
+//			}
+//			while (count-- >0)
+//			{
+//				printf(" ");
+//
+//			}
+//			printf("%2d ", arr[i][j]);
+//
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
