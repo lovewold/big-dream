@@ -26,36 +26,36 @@
 //	return 0;
 //
 //}
-#include<stdio.h>
-
-int main()
-{
-	//创建二维数组；
-	int N, M, K = 0;
-	scanf("%d %d %d", &N, &M, &K);
-	int arr[500][500];
-	int i = 0;
-	int count = 1;
-	for (i = 0; i < N; i++)
-	{
-		int j = 0;
-		for (j = 0; j < M; j++)
-		{
-			arr[i][j] = count++;
-		}
-	}
-	int* p = 0;
-	for (i = 0; i < N; i++)//找子矩阵n*m;
-	{
-		int j = 0;
-		for (j = 0; j < M; j++)
-		{
-			int n = 0;
-			for (n = 0; n < j; n++) 
-			{
-
-			}
-		}
-	}
-	return 0;
-}
+//#include<stdio.h>
+//
+//int main()
+//{
+//	//创建二维数组；
+//	int N, M, K = 0;
+//	scanf("%d %d %d", &N, &M, &K);
+//	int arr[500][500];
+//	int i = 0;
+//	int count = 1;
+//	for (i = 0; i < N; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < M; j++)
+//		{
+//			arr[i][j] = count++;
+//		}
+//	}
+//	int* p = 0;
+//	for (i = 0; i < N; i++)//找子矩阵n*m;
+//	{
+//		int j = 0;
+//		for (j = 0; j < M; j++)
+//		{
+//			int n = 0;
+//			for (n = 0; n < j; n++) 
+//			{
+//
+//			}
+//		}
+//	}
+//	return 0;
+//}
