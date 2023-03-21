@@ -7,6 +7,7 @@ int main()
 	int N,Ma = 0;
 	int ma[100000] = { 0 };
 	int Mb = 0;
+
 	int mb[100000] = { 0 };
 	
 	scanf("%d", &N);
