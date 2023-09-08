@@ -31,28 +31,39 @@
 //	printf("字符串长度为 %d ", my_strlen(arr));
 //	return 0;
 //}
-////模拟实现strcpy
+//模拟实现strcpy
+#include<stdio.h>
+#include<string.h>
+char* my_strcpy(char* copy,const char* source)
+{
+	//用下标访问，不改变首元素地址
+	int i = 0;
+	while (source[i++] != '\0')//遍历查找
+	{
+		copy[i-1] = source[i - 1];//拷贝
+	}
+	copy[i] = source[i];//最后一位\0也拷贝过来，否则字符数组没有终止符号
+	return copy;
+}
+int main()
+{
+	char arr[] = "ILOVEYOU";
+	char cpy[20] = { 0 };
+	my_strcpy(cpy, arr);
+	printf("原字符数组%s —》拷贝字符数组%s", arr, cpy);
+	return 0;
+}
 //#include<stdio.h>
 //#include<string.h>
-//char* my_strcpy(char* copy,const char* source)
-//{
-//	int i = 0;
-//	while (source[i++] != '\0')
-//	{
-//		copy[i-1] = source[i - 1];
-//	}
-//	copy[i] = '\0';
-//	return copy;
-//}
 //int main()
 //{
-//	char arr[] = "chen";
+//	char arr[] = "ILOVEYOU";
 //	char cpy[20] = { 0 };
-//	my_strcpy(cpy, arr);
-//	printf("原字符数组%s  拷贝字符数组%s", arr, cpy);
+//	strcpy(cpy, arr);
+//	printf("原字符数组%s  —》 拷贝字符数组%s", arr, cpy);
 //	return 0;
 //}
-//
+////
 //比较str1和str2大小的函数
 ////模拟实现strcmp
 //#include<stdio.h>
@@ -239,15 +250,87 @@
 //
 //    return 0;
 //}
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char str[80];
-	strcpy(str, "I ");
-	strcat(str, "LOVE ");
-	strcat(str, "YOU ");
-	strcat(str, "FOREVER!");
-	puts(str);
-	return 0;
-}
+//#include <stdio.h>
+//#include <string.h>
+//int main()
+//{
+//	char str[80];
+//	strcpy(str, "I ");
+//	strcat(str, "LOVE ");
+//	strcat(str, "YOU ");
+//	strcat(str, "FOREVER!");
+//	puts(str);
+//	return 0;
+////}
+//#include<stdio.h>
+//#include<assert.h>
+//
+//char* my_strcat(char* dest, const char* source)
+//{
+//	assert(dest);
+//	assert(source);
+//	char* dest_end = dest;//额外指针指向目标字符数组首元素位置，保证移动指针不丢失原先字符串位置
+//	while (*dest_end != '\0')//循环遍历找到目标数组的'\0'位置
+//	{
+//		dest_end++;//目标位置指针移步
+//	}
+//	while (*source != '\0')//来源字符串循环便利，终止位置为'\0'
+//	{
+//		*dest_end = *source;//覆盖
+//		dest_end++;
+//		source++;//并行指针移步添加
+//
+//	}
+//	*dest_end = *source;//因为最后的终止位置为'\0',所以直接赋值为source的最后一位即可
+//	return dest_end;//返回终止位置
+//}
+//
+//int main()
+//{
+//	char arr[100] = { 0 };
+//	my_strcat(arr, "I ");
+//	my_strcat(arr, "love ");
+//	my_strcat(arr, "you ");
+//	my_strcat(arr, "forever");
+//	my_strcat(arr, "!");
+//	printf("%s", arr);
+//	return 0;
+//}
+//#include<stdio.h>
+//#include<string.h>
+//int main()
+//{
+//	char str1[] = "iloveyou";
+//	char str2[] = "ove";
+//	printf("%s",strstr(str1, str2));
+//	return 0;
+//}
+//#include<stdio.h>
+//#include<assert.h>
+//char* my_strstr(char* str1, char* str2)
+//{
+//	assert(str1);
+//	assert(str2);//判断传递参照指针是否为空
+//	while(*str1)//终止条件为str1遍历到'\0'
+//	{
+//		char* s1 = str1;
+//		char* s2 = str2;//地址拷贝
+//		while (*s1 == *s2)//查找str1字符串中str2首元素相同的位置
+//		{
+//			s1++;
+//			s2++;//同步移位比较
+//		}
+//		if (*s2 == '\0')//成功标志，str2遍历完全
+//			return str1 ;//返回str1中查找到的子字符串起始位置
+//		str1++;//一次查找没有找到，继续找下一次首元素相同位置
+//	}
+//	return NULL;
+//}
+//
+//int main()
+//{
+//	char str1[] = "iloveyou";
+//	char str2[] = "ove";
+//	printf("%s",my_strstr(str1, str2));
+//	return 0;
+//}
