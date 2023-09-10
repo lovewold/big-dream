@@ -6,7 +6,15 @@ void menu()
 	printf("******  1.添加    *****    2.删除   ******\n");
 	printf("******  3.查找    *****    4.更改   ******\n");
 	printf("******  5.显示    *****    6.排序   ******\n");
-	printf("****    0.退出    *****    0.退出   ******\n");
+	printf("******  7.清空    *****    0.退出   ******\n");
+	printf("******************************************\n");
+}
+void menu_sort()
+{
+	printf("******************************************\n");
+	printf("******       1.根据名字进行排序     ******\n");
+	printf("******       2.根据年龄进行排序     ******\n");
+	printf("******       0.停止进行排序         ******\n");
 	printf("******************************************\n");
 }
 int main()
@@ -14,6 +22,8 @@ int main()
 	int input;
 	//菜单服务
 	Contact con;
+	//排序服务
+	int insort;
 	Infocontact(&con);
 	do
 	{
@@ -38,8 +48,30 @@ int main()
 			ShowContact(&con);
 			break;
 		case SORT:
-			SortContact(&con);
+				menu_sort();
+				printf("请选择-》 ");
+				scanf("%d", &insort);
+				do{
+					switch (insort)
+					{
+					case 1:
+						SortContact_by_name(&con);
+						ShowContact(&con);
+						break;
+					case 2:
+						SortContact_by_age(&con);
+						ShowContact(&con);
+						break;
+					default:
+						printf("请重新输入排序方式--》\n");
+						break;
+					}
+					break;
+				} while (insort);
 				break;
+		case INFO:
+			Infocontact_all(&con);
+			break;
 		case 0:
 			break;
 		default:

@@ -9,18 +9,6 @@
 #define MAX_tele 12
 #define MAX_addr 30
 
-
-enum OPTION
-{
-	EXIT,//0
-	ADD,
-	DEL,
-	SEARCH,
-	MODIFY,
-	SHOW,
-	SORT
-};
-
 typedef struct PenInfo
 {
 	char name[MAX_name];
@@ -36,6 +24,20 @@ typedef struct Contact
 	PenInfo date[MAX];
 	int sz;
 }Contact;
+enum OPTION
+{
+	EXIT,//0
+	ADD,
+	DEL,
+	SEARCH,
+	MODIFY,
+	SHOW,
+	SORT,
+	INFO,
+};
+
+
+
 //中间量
 
 //初始化
@@ -57,5 +59,9 @@ void ModifyContact(Contact* pc);
 void ShowContact(const Contact* pc);
 
 //排序通讯录联系人信息by_name
-void SortContact(Contact* pc);
+void SortContact_by_name(Contact* pc);
 
+//排序通讯录联系人信息by_age
+void SortContact_by_age(Contact* pc);
+
+void Infocontact_all(Contact* pc);

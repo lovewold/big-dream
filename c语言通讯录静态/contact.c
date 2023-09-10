@@ -14,6 +14,7 @@ void Infocontact(Contact* pc)
 	pc->sz = 0;
 }
 
+//查找联系人by_name
 static int FindContact_by_name(const Contact* pc,char name[])
 {
 	int i = 0;
@@ -28,6 +29,7 @@ static int FindContact_by_name(const Contact* pc,char name[])
 	return -1;//找不到
 }
 
+//添加联系人，增加信息。
 void AddContact(Contact* pc)
 {
 	assert(pc);
@@ -51,6 +53,7 @@ void AddContact(Contact* pc)
 	printf("成功添加第 %d 位联系人\n",pc->sz);
 
 }
+//删减指定联系人by_name
 void DelContact(Contact* pc)
 {
 	assert(pc);
@@ -82,13 +85,15 @@ void DelContact(Contact* pc)
 	
 
 }
+//显示通讯录
 void ShowContact(Contact* pc)
 {
-	printf("%-10s\t%-4s\t%4s\t%-12s\t%-30s\t\n", "姓名", "年龄", "性别", "电话号码", "联系人地址");
+	printf("  %-20s\t%-4s\t%-4s\t%-12s\t%-30s\t\n", "姓名", "年龄", "性别", "电话号码", "联系人地址");
+	printf("\n");
 	int i = 0;
 	for (i = 0; i < pc->sz; i++)
 	{
-		printf("%-10s\t%-4d\t%4s\t%-12s\t%-30s\t\n",
+		printf("  %-20s\t%-4d\t%-4s\t%-12s\t%-30s\t\n",
 			pc->date[i].name,
 			pc->date[i].age,
 			pc->date[i].sex,
@@ -97,8 +102,8 @@ void ShowContact(Contact* pc)
 		);
 	}
 	printf("\n");
-	printf("\n");
 }
+
 void SearchContact(Contact* pc)
 {
 	assert(pc);
@@ -160,51 +165,7 @@ void ModifyContact(Contact* pc)
 	}
 }
 
-//void SortContact(Contact* pc)
-//{
-//	int i = 0;
-//	int ret = 0;
-//	PenInfo p;
-//
-//	int flog = 0;
-//	for (i = 0; i <pc->sz; i++)
-//	{
-//		char* name = pc->date[i].name;
-//		int j = i;
-//		
-//		for (j = i; j < pc->sz; j++)
-//		{
-//			ret = strcmp(name, pc->date[j].name);
-//			
-//			if (ret > 0)
-//			{
-//				flog = j;
-//				name = pc->date[j].name;
-//			}
-//			
-//			
-//		}
-//		strcpy(p.name, pc->date[flog].name);
-//		p.age = pc->date[flog].age;
-//		strcpy(p.sex, pc->date[flog].sex);
-//		strcpy(p.tele, pc->date[flog].tele);
-//		strcpy(p.addr, pc->date[flog].addr);
-//
-//		strcpy(pc->date[flog].name,pc->date[i].name);
-//		pc->date[flog].age = pc->date[i].age;
-//		strcpy(pc->date[flog].sex, pc->date[i].sex);
-//		strcpy(pc->date[flog].tele, pc->date[i].tele);
-//		strcpy(pc->date[flog].addr, pc->date[i].addr);
-//		
-//		strcpy(pc->date[i].name, p.name);
-//		pc->date[i].age = p.age;
-//		strcpy(pc->date[i].sex, p.sex);
-//		strcpy(pc->date[i].tele, p.tele);
-//		strcpy(pc->date[i].addr, p.addr);
-//	}
-//	
-//}
-void SortContact(Contact* pc)
+void SortContact_by_name(Contact* pc)
 {
 	int i = 0;
 	int ret = 0;
@@ -226,24 +187,49 @@ void SortContact(Contact* pc)
 
 		if (flog != i)
 		{
-			// Swap the elements at positions i and flog
-			strcpy(p.name, pc->date[flog].name);
-			p.age = pc->date[flog].age;
-			strcpy(p.sex, pc->date[flog].sex);
-			strcpy(p.tele, pc->date[flog].tele);
-			strcpy(p.addr, pc->date[flog].addr);
-
-			strcpy(pc->date[flog].name, pc->date[i].name);
-			pc->date[flog].age = pc->date[i].age;
-			strcpy(pc->date[flog].sex, pc->date[i].sex);
-			strcpy(pc->date[flog].tele, pc->date[i].tele);
-			strcpy(pc->date[flog].addr, pc->date[i].addr);
-
-			strcpy(pc->date[i].name, p.name);
-			pc->date[i].age = p.age;
-			strcpy(pc->date[i].sex, p.sex);
-			strcpy(pc->date[i].tele, p.tele);
-			strcpy(pc->date[i].addr, p.addr);
+	
+			p = pc->date[flog];
+			pc->date[flog] = pc->date[i];
+			pc->date[i] = p;
 		}
 	}
+}
+//by_age
+void SortContact_by_age(Contact* pc)
+{
+	int i = 0;
+	int ret = 0;
+	PenInfo p;
+
+	for (i = 0; i < pc->sz - 1; i++)
+	{
+		int flog = i;
+
+		for (int j = i + 1; j < pc->sz; j++)
+		{
+			ret = (pc->date[j].age)-(pc->date[flog].age);
+
+			if (ret < 0)
+			{
+				flog = j;
+			}
+		}
+
+		if (flog != i)
+		{
+			// Swap the elements at positions i and flog
+			p = pc->date[flog];
+			pc->date[flog] = pc->date[i];
+			pc->date[i] = p;
+		
+		}
+	}
+}
+
+//清空通讯录
+void Infocontact_all(Contact* pc)
+{
+	Infocontact(pc);
+	printf("通讯录已经清空\n");
+	ShowContact(pc);
 }
