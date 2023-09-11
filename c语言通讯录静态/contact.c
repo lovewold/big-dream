@@ -104,6 +104,7 @@ void ShowContact(Contact* pc)
 	printf("\n");
 }
 
+//寻找到指定联系人后打印联系人信息
 void SearchContact(Contact* pc)
 {
 	assert(pc);
@@ -133,12 +134,13 @@ void SearchContact(Contact* pc)
 		);
 	}
 }
+//
 void ModifyContact(Contact* pc)
 {
 	assert(pc);
 	if (pc->sz == 0)
 	{
-		printf("通讯录没有联系人，无法查找\n");
+		printf("通讯录没有联系人，无法更改\n");
 		return;
 	}
 	char name[MAX_name] = { 0 };
