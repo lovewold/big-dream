@@ -1,7 +1,6 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-
+#pragma once
 #include"seqlist.h"
-//初始化
+
 void SLinit(SL* ps)
 {
 	ps->a = (SLDatEType*)malloc(sizeof(SLDatEType) * 4);
@@ -12,6 +11,7 @@ void SLinit(SL* ps)
 	}
 	ps->size = 0;
 	ps->capacity = 4;
+
 }
 void SLDestroy(SL* ps)
 {
@@ -19,26 +19,10 @@ void SLDestroy(SL* ps)
 	ps->a = NULL;
 	ps->capacity = ps->size = 0;
 }
-void SLPushback(SL* ps,SLDatEType x)
+void SLPushback(SL* ps, SLDatEType x)
 {
+	//检查是否满。满了需要扩容
 	SLCheckCapacity(ps);
-	ps->a[ps->size]=x;
-	ps->size++;
-}
-void Print(SL* ps)
-{
-	int i = 0;
-	for (i = 0; i < ps->size; i++)
-	{
-		printf("%d ", ps->a[i]);
-	}
-}
-
-//尾删
-void SLPopback(SL* ps)
-{
-	assert(ps-> size > 0);
-	ps->size--;
 }
 void SLCheckCapacity(SL* ps)
 {
@@ -54,12 +38,11 @@ void SLCheckCapacity(SL* ps)
 		ps->capacity *= 2;
 	}
 }
-//头插
-void SLPushFront(SL* ps,SLDatEType x)
+void SLPushFront(SL* ps, SLDatEType x)
 {
 	SLCheckCapacity(ps);
-	int end = ps->size-1;
-	while (end >= 0 )
+	int end = ps->size - 1;
+	while (end >= 0)
 	{
 		ps->a[end + 1] = ps->a[end];
 		--end;
@@ -73,45 +56,62 @@ void SLPopFront(SL* ps)
 	int i = 0;
 	while (i < ps->size)
 	{
-		ps->a[i] = ps->a[i];
+		ps->a[i] = ps->a[i + 1];
 		i++;
 	}
+	ps->size--;
+}
+void SLPushBack(SL* ps,SLDatEType x)
+{
+	SLCheckCapacity(ps);
+	ps->a[ps->size] = x;
+	ps->size++;
+}
+void SLPopBack(SL* ps)
+{
+	assert(ps->size > 0);
 	ps->size--;
 }
 int SeqListFind(SL* ps, SLDatEType x)
 {
 	int i = 0;
-	while (i <= ps->size-1)
+
+	for (i = 0; i < ps->size; i++)
 	{
 		if (ps->a[i] == x)
-		{
-			return x;
-		}
-		i++;
-
+			return i;
 	}
 	return -1;
 }
-void SeqListInsert(SL* ps, int pos, SLDatEType x)
+
+void SeqListIsert(SL* ps, int pos, SLDatEType x)
 {
-	assert(pos >= 0 && pos <= ps->size - 1);
 	SLCheckCapacity(ps);
-	int i = ps->size - 1;
-	for(i = ps->size - 1; i >= pos-1; i--)
+	assert(pos >= 0 && pos <= ps->size - 1);
+	int i = ps->size-1;
+	for (i=ps->size-1; i >= pos; i--)
 	{
 		ps->a[i + 1] = ps->a[i];
 	}
-	ps->a[pos-1] = x;
+	ps->a[pos] = x;
 	ps->size++;
 }
+
 void SeqListErase(SL* ps, int pos)
 {
 	assert(pos >= 0 && pos <= ps->size - 1);
 	int i = 0;
-	for (i = pos-1;i <= ps->size-1; i++)
+	for (i = pos; i <= ps->size - 1; i++)
 	{
-		ps->a[i] = ps->a[i+1];
+		ps->a[i] = ps->a[i + 1];
 	}
 	ps->size--;
-
+}
+void PrintfList(SL* ps)
+{
+	int i = 0;
+	for (i = 0; i < ps->size; i++)
+	{
+		printf("%d->", ps->a[i]);
+	}
 }
