@@ -19,11 +19,7 @@ void SLDestroy(SL* ps)
 	ps->a = NULL;
 	ps->capacity = ps->size = 0;
 }
-void SLPushback(SL* ps, SLDatEType x)
-{
-	//检查是否满。满了需要扩容
-	SLCheckCapacity(ps);
-}
+
 void SLCheckCapacity(SL* ps)
 {
 	if (ps->size == ps->capacity)
@@ -114,4 +110,11 @@ void PrintfList(SL* ps)
 	{
 		printf("%d->", ps->a[i]);
 	}
+}
+
+void SeqListAlter(SL* ps, int pos, SLDatEType x)
+{
+	assert(pos >= 0 && pos <= ps->size - 1);
+	ps->a[pos] = x;
+
 }

@@ -7,10 +7,11 @@ void menu()
 	printf("*********** 1 .头插   2.尾插   **************\n");
 	printf("*********** 3. 头删   4.尾删   **************\n");
 	printf("*********** 5.清空顺序表       **************\n");
-	printf("*********** 6.插入值           **************\n");
+    printf("*********** 6.插入值           **************\n");
 	printf("*********** 7.删除值           **************\n");
 	printf("*********** 8.寻找值           **************\n");
-	printf("*********************************************\n");
+    printf("*********** 9.更改值           **************\n");
+    printf("*********************************************\n");
 
 }
 
@@ -88,6 +89,11 @@ int main()
             printf("请输入要删除的值：");
             scanf("%d", &value);
             int ret = SeqListFind(&ps, value);
+            if (ret == -1)
+            {
+                printf("没有查找到值\n");
+                break;
+            }
             SeqListErase(&ps, ret);
             printf("删除成功。\n");
             PrintfList(&ps);
@@ -106,6 +112,14 @@ int main()
                 printf("值 %d 未找到。\n", value);
 
             break;
+        case 9:
+                printf("请输入要更改的 ：位置 值");
+                scanf("%d %d",&pos,&value);
+                SeqListAlter(&ps,pos,value);
+                PrintfList(&ps);
+
+
+                break;
 
         default:
             printf("无效的选择，请重新输入。\n");

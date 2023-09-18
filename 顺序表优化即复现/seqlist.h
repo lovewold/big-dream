@@ -33,5 +33,7 @@ int SeqListFind(SL* ps, SLDatEType x);
 void SeqListIsert(SL* ps, int pos, SLDatEType x);
 //顺序表在pos位置删除
 void SeqListErase(SL* ps, int pos);
-
+//顺序表在pos位置进行更改
+void SeqListAlter(SL* ps, int pos, SLDatEType x);
+//打印顺序表内容
 void PrintfList(SL* ps);
