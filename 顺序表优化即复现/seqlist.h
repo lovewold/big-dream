@@ -23,6 +23,9 @@ void SLPopFront(SL* ps);
 void SLPushBack(SL* ps, SLDatEType x);
 void SLPopBack(SL* ps);
 
+void SeqListAlter(SL* ps, int pos, SLDatEType x);
+//打印顺序表内容
+void PrintfList(SL* ps);
 //检查容量
 void SLCheckCapacity(SL* ps);
 
@@ -34,6 +37,3 @@ void SeqListIsert(SL* ps, int pos, SLDatEType x);
 //顺序表在pos位置删除
 void SeqListErase(SL* ps, int pos);
 //顺序表在pos位置进行更改
-void SeqListAlter(SL* ps, int pos, SLDatEType x);
-//打印顺序表内容
-void PrintfList(SL* ps);
