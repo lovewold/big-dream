@@ -96,4 +96,5 @@ void ListDestory(ListNode* pHead)
 	{
 		ListPopBack(pHead);
 	}
+	free(pHead);
 }
