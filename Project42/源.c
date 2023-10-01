@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_SECURE_NO_WARNINGS 1
 
 
 #include<stdbool.h>
@@ -134,15 +135,10 @@ bool isValid(char* s)
 		++s;
 
 	}
-	while (!STEmpty(&L))
-	{
-		printf("%c", STTop(&L));
-		STPop(&L);
-	}
-
+	
 	//栈不为空返回false，括号数量不匹配
 	bool ret = STEmpty(&L);
-
+	STDestroy(&L);
 	return ret;
 
 
