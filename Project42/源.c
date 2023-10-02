@@ -130,8 +130,10 @@ bool isValid(char* s)
 				return false;
 				//¿®∫≈≤ª∆•≈‰
 			}
-			break;
+			
 		}
+
+		break;
 		++s;
 
 	}
