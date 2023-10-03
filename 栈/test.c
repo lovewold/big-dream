@@ -150,8 +150,19 @@ bool isValid(char* s)
 void TestStack1()
 {
 	ST st;
-	char* s = "{()}";
-	isValid(s);
+	STpush(&st, '{');
+	STpush(&st, '(');
+	STpush(&st, '');
+	STpush(&st, 5);
+
+	while (!STEmpty(&st))
+	{
+		printf("%d ", STTop(&st));
+		STPop(&st);
+	}
+	printf("\n");
+
+	STDestroy(&st);
 }
 
 int main()
