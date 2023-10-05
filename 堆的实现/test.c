@@ -50,24 +50,39 @@
 //	HeapDestroy(&hp);
 //}
 
-// 升序
+//// 升序
+//void HeapSort(int* a, int n)
+//{
+//	 /*向上调整建堆 （大堆）or  （小堆）
+//	 O(N*logN)*/
+//	/*for (int i = 1; i < n; i++)
+//	{
+//		AdjustUp(a, i);
+//	}*/
+//
+//	 //向下调整建堆
+//	 //O(N)
+//	for (int i = (n - 1 - 1) / 2; i >= 0; i--)
+//	{
+//		AdjustDown(a, n, i);
+//	}
+//
+//	/* O(N*logN)*/
+	/*int end = n - 1;
+	while (end > 0)
+	{
+		Swap(&a[0], &a[end]);
+		AdjustDown(a, end, 0);
+		--end;
+	}*/
+//
+//}
 void HeapSort(int* a, int n)
 {
-	 /*向上调整建堆 （大堆）or  （小堆）
-	 O(N*logN)*/
-	/*for (int i = 1; i < n; i++)
-	{
-		AdjustUp(a, i);
-	}*/
-
-	 //向下调整建堆
-	 //O(N)
 	for (int i = (n - 1 - 1) / 2; i >= 0; i--)
 	{
 		AdjustDown(a, n, i);
 	}
-
-	/* O(N*logN)*/
 	int end = n - 1;
 	while (end > 0)
 	{
@@ -75,21 +90,20 @@ void HeapSort(int* a, int n)
 		AdjustDown(a, end, 0);
 		--end;
 	}
-
 }
-
+//
 int main()
 {
 	//int a[] = { 65,100,70,32,50,60 };
-	//int a[] = { 2,3,5,7,4,6,8,65,100,70,32,50,60 };
+	int a[] = { 2,3,5,7,4,6,8,65,100,70,32,50,60 };
 	//int a[] = { 70, 65, 100, 32, 50, 60 };
-	int a[] = { 2,3,5,7,4,6,8 };
+ 	/*int a[] = { 2,3,5,7,4,6,8 };*/
 	HeapSort(a, sizeof(a) / sizeof(int));
 
 	return 0;
 }
-//
-////////////////////////////////////////////////////////////////////////////////////////////////
+////
+//////////////////////////////////////////////////////////////////////////////////////////////////
 //void PrintTopK(const char* filename, int k)
 //{
 //	// 1. 建堆--用a中前k个元素建堆
