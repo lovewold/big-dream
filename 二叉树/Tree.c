@@ -108,3 +108,7 @@ void BinaryTreePostOrder(BTNode* root)
 	printf(" %c ", root->data);
 
 }
+void BinaryTreeLevelOrder(BTNode* root)
+{
+
+}
