@@ -2,7 +2,7 @@
 #include"Tree.h"
 int main()
 {
-	BTDataType arr[] = "abc##de#g##f###";
+	BTDataType arr[] = "abd##e##cf##g##";
 	int i = 0;
 	BTNode* newnode = BinaryTreeCreate(arr,sizeof(arr)/sizeof(BTDataType)-1,&i);
 	
@@ -17,9 +17,16 @@ int main()
 	BinaryTreeInOrder(newnode);
 	printf("\n后序遍历：");
 	BinaryTreePostOrder(newnode);
+	
+	printf("\n层次遍历：");
+	BinaryTreeLevelOrder(newnode);
+	printf("\n树的深度%d\n", TreeHeight(newnode));
+
+	int ret = BinaryTreeComplete(newnode);
+	printf("是否为完全二叉树%d", ret);
+
 
 	BinaryTreeDestory(&newnode);
-	
 
 	return 0;
 }

@@ -108,7 +108,70 @@ void BinaryTreePostOrder(BTNode* root)
 	printf(" %c ", root->data);
 
 }
+int TreeHeight(BTNode* root)
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+	return fmax(TreeHeight(root->left), TreeHeight(root->right)) + 1;
+}
 void BinaryTreeLevelOrder(BTNode* root)
 {
+	Queue q;
+	QueueInit(&q);
 
+	if (root != NULL)
+	{
+		QueuePush(&q, root);
+	}
+	while (!QueueEmpty(&q))
+	{
+		BTNode* front = QueueFront(&q);
+		printf("%c", front->data);
+
+		if (front->left)
+			QueuePush(&q, front->left);
+		if(front->right)
+			QueuePush(&q, front->right);
+
+		QueuePop(&q);
+		
+
+	}
+	printf("\n");
+	QueueDestroy(&q);
+}
+int BinaryTreeComplete(BTNode* root)
+{
+	Queue q;
+	QueueInit(&q);
+
+	if (root)
+		QueuePush(&q, root);
+
+	while (!QueueEmpty(&q))
+	{
+		BTNode* front = QueueFront(&q);
+		if (front == NULL)
+		{
+			break;
+		}
+		QueuePush(&q, front->left);
+		QueuePush(&q, front->right);
+		QueuePop(&q);
+	}
+	while (!QueueEmpty(&q))
+	{
+		BTNode* front = QueueFront(&q);
+		QueuePop(&q);
+		if (front != NULL)
+		{
+			QueuePop(&q);
+			QueueDestroy(&q);
+			return false;
+		}
+	}
+	QueueDestroy(&q);
+	return true;
 }

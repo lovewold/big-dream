@@ -7,12 +7,12 @@ void HeapInit(Heap* hp)
 	hp->a = NULL;
 	hp->capacity = hp->size = 0;
 }
-void HeapCreate(Heap* hp, HPDataType* a, int n)
+void HeapCreate(Heap* hp, HPDataType* a, int n)//对已有数组可以直接构建堆
 {
 	assert(hp);
 	assert(a);
 	
-	hp->a = (HPDataType*)malloc(sizeof(HPDataType) * n);
+	hp->a = (HPDataType*)malloc(sizeof(HPDataType) * n);//开辟空间，如果已有数组，之间开辟等大空间
 	if (hp->a == NULL)
 	{
 		perror("malloc fail");
@@ -54,16 +54,16 @@ void AdjustUp(HPDataType* a, int child)
 void AdjustDown(HPDataType* a, int n, int parent)
 {
 	assert(a);
-	int child = (parent) * 2 + 1;
+	int child = (parent) * 2 + 1;//索引找孩子节点
 	while (child < n)
 	{
-		if (child + 1 < n && a[child + 1] < a[child])
+		if (child + 1 < n && a[child + 1] > a[child])
 		{
 			++child;
 		}
-		if (a[child] < a[parent])
+		if (a[child] > a[parent])//子节点小于父节点，则交换
 		{
-			Swap(&a[child], &a[parent]);
+			Swap(&a[child], &a[parent]);//用于交换自定义函数
 			parent = child;
 			child = child * 2 + 1;
 		}

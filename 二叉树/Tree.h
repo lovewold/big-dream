@@ -14,6 +14,8 @@ typedef struct BinaryTreeNode
 	struct BinaryTreeNode* right;
 }BTNode;
 
+#include"Queue.h"
+
 // 通过前序遍历的数组"ABD##E#H##CF##G##"构建二叉树
 BTNode* BinaryTreeCreate(BTDataType* a,int n , int* pi);
 // 二叉树销毁
@@ -36,4 +38,5 @@ void BinaryTreePostOrder(BTNode* root);
 void BinaryTreeLevelOrder(BTNode* root);
 // 判断二叉树是否是完全二叉树
 int BinaryTreeComplete(BTNode* root);
-
+//树的深度
+int TreeHeight(BTNode* root);
