@@ -47,10 +47,7 @@ int PartSort3(int* a, int left, int right)
 	Swap(&a[key], &a[prev]);
 	return prev;
 }
-void QueSort(int* a, int n)
-{
 
-}
 int main()
 {
 	int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
@@ -58,6 +55,7 @@ int main()
 	//ShellSort(arr, sizeof(arr) / sizeof(int));
 	//HeapSort(arr, sizeof(arr) / sizeof(int));
 	//SelectSort(arr, sizeof(arr) / sizeof(int));
+	BubbleSort(arr, sizeof(arr) / sizeof(int));
 	
 	PrintArray(arr,sizeof(arr) / sizeof(int));
 	return 0;

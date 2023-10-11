@@ -134,3 +134,37 @@ void HeapSort(int* a, int n)
 	}
 }
 
+void BubbleSort(int* a, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		int flog = 0;
+		for (int j = 0; j < n-i; j++)
+		{
+			if (a[j] > a[j + 1])
+			{
+				Swap(&a[j], &a[j + 1]);
+				flog = 1;
+			}
+		}
+		if (flog == 0)
+		{
+			break;
+		}
+	}
+}
+
+// 快速排序递归实现
+// 快速排序hoare版本
+int PartSort1(int* a, int left, int right)
+{
+
+}
+// 快速排序挖坑法
+int PartSort2(int* a, int left, int right);
+// 快速排序前后指针法
+int PartSort3(int* a, int left, int right);
+void QuickSort(int* a, int left, int right);
+
+// 快速排序 非递归实现
+void QuickSortNonR(int* a, int left, int right);
