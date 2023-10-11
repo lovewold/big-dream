@@ -50,5 +50,6 @@ int main()
 	cin >> a >> b;
 	int c = sum(a, b);
 	cout << "Êä³ösum:" << c;
+
 }
 
