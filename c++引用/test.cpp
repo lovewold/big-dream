@@ -165,16 +165,15 @@ void Swap_r(int& x, int& y)
 //
 //	return 0;
 //}
-#define max(a,b) (a+b)
-inline int Max(int x, int y)//内联函数
-{
-	return (x > y) ? x : y;
-}
-
-int main()
-{
-
-	cout << "Max (20,10): " << Max(20, 10) << endl;
-	cout << "max(20,20): " << max(0&0,1*20) << endl;
-	return 0;
-}
+//inline int Max(int x, int y)//内联函数
+//{
+//	return (x > y) ? x : y;
+//}
+//
+//int main()
+//{
+//
+//	cout << "Max (20,10): " << Max(20, 10) << endl;
+//	cout << "max(20,20): " << max(0&0,1*20) << endl;
+//	return 0;
+//}
