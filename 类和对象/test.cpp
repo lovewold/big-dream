@@ -113,28 +113,103 @@ using namespace std;
 //	f((int*)NULL);
 //	return 0;
 //}
+//
+//class person
+//{
+//public:
+//	void showInfo()
+//		{
+//			cout << _name << "-" << _sex << "-" << _age << endl;
+//		}
+//public:
+//	char* _name;
+//	char* _sex;
+//	int _age;
+//};
+//
+//int main()
+//{
+//	char arr[] = "llll";
+//	char sex[] = "nan";
+//	person L;
+//	L._age = 18;
+//	L._name = arr;
+//	L._sex = sex;
+//	L.showInfo();
+////}
+//
+//class person
+//{
+//public:
+//	void PrintPersonInfo();
+//public:
+//	char _name[20];
+//	char _gender[3];
+//	int _age[];
+//};
+////定义函数方法先指明此函数是属于哪一个类的
+//void person::PrintPersonInfo()
+////{
+////	cout << _name << " " << _gender << " " << _age << endl;
+////}
+//
+//class A
+//{
+//public:
+//	void PrintA()
+//	{
+//		cout << _a << endl;
+//	}
+//private:
+//	char _a;
+//};
 
-class person
+//class A1//既有成员变量又有成员函数
+//{
+//public:
+//	void f1() {};
+//private:
+//	int _a;
+//};
+//class A2//仅有成员函数
+//{
+//public:
+//	void f2() {};
+//};
+//class A3//类中什么都没有
+//{};
+//int main()
+//{
+//	cout << sizeof(A1) << endl;
+//	cout << sizeof(A2) << endl;
+//	cout << sizeof(A3) << endl;
+//}
+
+class Date
 {
 public:
-	void showInfo()
-		{
-			cout << _name << "-" << _sex << "-" << _age << endl;
-		}
-public:
-	char* _name;
-	char* _sex;
-	int _age;
+	void Init(int year, int month, int day)
+	{
+		_year = year;
+		_month = month;
+		_day = day;
+	}
+	void print()
+	{
+		cout << _year << "-" << _month << "-" << _day << endl;
+	}
+private:
+	int _year;
+	int _month;
+	int _day;
+	int a;
 };
 
 int main()
 {
-	char arr[] = "llll";
-	char sex[] = "nan";
-	person L;
-	L._age = 18;
-	L._name = arr;
-	L._sex = sex;
-	L.showInfo();
-
+	Date d1, d2;
+	d1.Init(2022, 1, 11);
+	d2.Init(2023, 12, 10);
+	d1.print();
+	d2.print();
 }
