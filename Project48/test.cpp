@@ -262,36 +262,54 @@ using namespace std;
 //	d1 << cout;
 //	return 0;
 //}
-class Date
-{
-	friend ostream& operator<<(ostream& _cout, const Date& d);
-	friend istream& operator>>(istream& _cin,Date& d);
-public:
-	Date(int year= 1970, int month = 1, int day = 1 )
-		:_year(year)
-		,_month(month)
-		,_day(day)
-	{}
+//class Date
+//{
+//	friend ostream& operator<<(ostream& _cout, const Date& d);
+//	friend istream& operator>>(istream& _cin,Date& d);
+//public:
+//	Date(int year= 1970, int month = 1, int day = 1 )
+//		:_year(year)
+//		,_month(month)
+//		,_day(day)
+//	{}
+//private:
+//	int _year;
+//	int _month;
+//	int _day;
+//};
+//ostream& operator<<(ostream& _cout, const Date& d)
+//{
+//	_cout << d._year << "-" << d._month << "-" << d._day << endl;
+//	return _cout;
+//}
+//istream& operator>>(istream& _cin, Date& d)//要修改，别加const
+//{
+//	_cin >> d._year >> d._month >> d._day;
+//	return _cin;
+//}
+//
+//int main()
+//{
+//	Date d;
+//	cin >> d;
+//	cout << d;
+//	return 0;
+//}
+class A {
 private:
-	int _year;
-	int _month;
-	int _day;
+	static int _s_a1;
+	int _a2;
+public:
+	class B 
+	{
+		// B天生就是A的友元
+	public:
+		void foo(const A& a) 
+		{
+			cout << _s_a1 << endl;  
+			cout << a._a2 << endl;  
+		}
+	private:
+		int _b1;
+	};
 };
-ostream& operator<<(ostream& _cout, const Date& d)
-{
-	_cout << d._year << "-" << d._month << "-" << d._day << endl;
-	return _cout;
-}
-istream& operator>>(istream& _cin, Date& d)
-{
-	_cin >> d._year >> d._month >> d._day;
-	return _cin;
-}
-
-int main()
-{
-	Date d;
-	cin >> d;
-	cout << d;
-	return 0;
-}
